@@ -3,6 +3,7 @@
 #include "ofMain.h"
 #include "ofxMaxim.h"
 #include "ofxOpenCv.h"
+#include "simpleParticleSystem.h"
 
 class ofApp : public ofBaseApp{
 
