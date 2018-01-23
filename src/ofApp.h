@@ -4,8 +4,9 @@
 #include "ofxMaxim.h"
 #include "ofxOpenCv.h"
 #include "simpleParticleSystem.h"
+#include "SoundManager.h"
 
-class ofApp : public ofBaseApp{
+class ofApp : public ofBaseApp {
 
 	public:
 		void setup();
@@ -28,6 +29,8 @@ class ofApp : public ofBaseApp{
         void audioOut(float * output, int bufferSize, int nChannels);
         void audioIn(float * input, int bufferSize, int nChannels);
     
+        SoundManager soundManager;
+    
         int		bufferSize;
         int		sampleRate;
     
@@ -43,7 +46,12 @@ class ofApp : public ofBaseApp{
         ofxCvFloatImage bufferFloat;    //Buffer image
     
         bool debug;
-
+    
+        // particle system
+    
+        simpleParticleSystem system;
+    
+    
     
 
 };

@@ -11,6 +11,8 @@
 		1D5F3298C2FA073628012944 /* ofxCvContourFinder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C76DE5C29BDBD2CAA1DD0021 /* ofxCvContourFinder.cpp */; };
 		2208E9472017A47700FF8EF5 /* simpleParticleSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2208E9432017A47600FF8EF5 /* simpleParticleSystem.cpp */; };
 		2208E9482017A47700FF8EF5 /* simpleParticle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2208E9452017A47600FF8EF5 /* simpleParticle.cpp */; };
+		2210E94F2017A9A3008D521C /* SoundManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2210E94D2017A9A3008D521C /* SoundManager.cpp */; };
+		2210E9522017ACE5008D521C /* Sound.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2210E9502017ACE5008D521C /* Sound.cpp */; };
 		250A95BA26587BE85DB0A353 /* ofxCvColorImage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE9C7160245B19131DAE6128 /* ofxCvColorImage.cpp */; };
 		34BFCE51FA89D9A920F0EFA1 /* maxiFFT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE1958711E16F9CF6BDDDD22 /* maxiFFT.cpp */; };
 		3C44D4A9228687CD9E9843FD /* maxiAtoms.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD38B094C1D700B30C7D0B85 /* maxiAtoms.cpp */; };
@@ -86,6 +88,10 @@
 		2208E9442017A47600FF8EF5 /* simpleParticleSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = simpleParticleSystem.h; sourceTree = "<group>"; };
 		2208E9452017A47600FF8EF5 /* simpleParticle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = simpleParticle.cpp; sourceTree = "<group>"; };
 		2208E9462017A47600FF8EF5 /* simpleParticle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = simpleParticle.h; sourceTree = "<group>"; };
+		2210E94D2017A9A3008D521C /* SoundManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SoundManager.cpp; sourceTree = "<group>"; };
+		2210E94E2017A9A3008D521C /* SoundManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SoundManager.h; sourceTree = "<group>"; };
+		2210E9502017ACE5008D521C /* Sound.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Sound.cpp; sourceTree = "<group>"; };
+		2210E9512017ACE5008D521C /* Sound.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Sound.h; sourceTree = "<group>"; };
 		2411F6B35DAAAE5083D51167 /* motion_estimators.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = motion_estimators.hpp; path = ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/stitching/detail/motion_estimators.hpp; sourceTree = SOURCE_ROOT; };
 		26E4EEE253C8A6EFC3B3A639 /* warpers.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = warpers.hpp; path = ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/stitching/detail/warpers.hpp; sourceTree = SOURCE_ROOT; };
 		293D553B5067FBB8DEFA84D9 /* cap_ios.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = cap_ios.h; path = ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/highgui/cap_ios.h; sourceTree = SOURCE_ROOT; };
@@ -748,6 +754,10 @@
 				2208E9462017A47600FF8EF5 /* simpleParticle.h */,
 				2208E9432017A47600FF8EF5 /* simpleParticleSystem.cpp */,
 				2208E9442017A47600FF8EF5 /* simpleParticleSystem.h */,
+				2210E94D2017A9A3008D521C /* SoundManager.cpp */,
+				2210E94E2017A9A3008D521C /* SoundManager.h */,
+				2210E9502017ACE5008D521C /* Sound.cpp */,
+				2210E9512017ACE5008D521C /* Sound.h */,
 			);
 			path = src;
 			sourceTree = SOURCE_ROOT;
@@ -875,7 +885,9 @@
 				2208E9472017A47700FF8EF5 /* simpleParticleSystem.cpp in Sources */,
 				90A8642E10F2CF85A6A21054 /* maxiGrains.cpp in Sources */,
 				65C8E37D12E2063C36AA1D75 /* maxiMFCC.cpp in Sources */,
+				2210E94F2017A9A3008D521C /* SoundManager.cpp in Sources */,
 				F3D12E7987341201E2949B31 /* maximilian.cpp in Sources */,
+				2210E9522017ACE5008D521C /* Sound.cpp in Sources */,
 				3C46D3D3DB078D584BFBBDFD /* stb_vorbis.c in Sources */,
 				250A95BA26587BE85DB0A353 /* ofxCvColorImage.cpp in Sources */,
 				1D5F3298C2FA073628012944 /* ofxCvContourFinder.cpp in Sources */,

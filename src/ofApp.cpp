@@ -8,6 +8,10 @@
 
 #include "ofApp.h"
 
+#define OFFSET 0.0
+
+
+
 //--------------------------------------------------------------
 void ofApp::setup(){
     
@@ -29,12 +33,16 @@ void ofApp::setup(){
     video.setDeviceID(0);
     video.setDesiredFrameRate(60);
     video.initGrabber(640, 480);
-    debug = true;
+    debug = false;
+    
+    system.setupAsGrid(40, 2, 150);
     
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
+    
+    system.update();
     
     video.update();        //Decode the new frame if needed
     //Do computing only if the new frame was obtained
@@ -102,7 +110,10 @@ void ofApp::draw(){
             diffFloat.draw( w/2, 0, w/2, h/2 );
             bufferFloat.draw( 0, h/2, w/2, h/2 );
         }
-        else image.draw( 0, 0, ofGetWidth(), ofGetHeight() );
+        else {
+//            diffFloat.draw( 0, 0, ofGetWidth(), ofGetHeight() );
+            bufferFloat.draw( 0, 0, ofGetWidth(), ofGetHeight() );
+        }
         
         //Draw the image motion areas
         if (debug)
@@ -128,29 +139,28 @@ void ofApp::draw(){
                 float value = pixels[ x + w * y ];
                 //If value exceed threshold, then draw pixel
                 if ( value >= 1.4 ) {                           //original was 0.9
+                    
                     if (debug) ofDrawRectangle( x, y, 1, 1 );
-                    //EDIT HERE: this is where you'll be activating
-                    //the grid locations or generating particles
-                    //the debug mode draws small black points in the bottom right square
+                    
+                    system.activateParticle(x + OFFSET, y + OFFSET);
+                    soundManager.trigger_at(x + OFFSET, y + OFFSET);
                 }
             }
         }
     }
     
+    system.draw();
+    
 }
 
 //--------------------------------------------------------------
 void ofApp::audioOut(float * output, int bufferSize, int nChannels) {
-    
     for (int i = 0; i < bufferSize; i++){
-        
-        double mix = 0.0;
-
+        double mix = soundManager.signal();
+//        cout << "mix: " << mix << endl;
         output[i*nChannels    ] = mix;
         output[i*nChannels + 1] = mix;
-
     }
-    
 }
 
 //--------------------------------------------------------------
