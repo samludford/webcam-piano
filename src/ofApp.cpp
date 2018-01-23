@@ -67,7 +67,7 @@ void ofApp::update(){
             //We do it by multiplication. But to do it, we
             //need to convert diff to float image first
             diffFloat = diff;    //Convert to float image
-            diffFloat *= 5.0;    //Amplify the pixel values (original = 5.0)
+            diffFloat *= 2.0;    //Amplify the pixel values (original = 5.0)
             
             //Update the accumulation buffer
             if ( !bufferFloat.bAllocated ) {
@@ -157,7 +157,6 @@ void ofApp::draw(){
 void ofApp::audioOut(float * output, int bufferSize, int nChannels) {
     for (int i = 0; i < bufferSize; i++){
         double mix = soundManager.signal();
-//        cout << "mix: " << mix << endl;
         output[i*nChannels    ] = mix;
         output[i*nChannels + 1] = mix;
     }

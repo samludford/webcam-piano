@@ -12,7 +12,7 @@ class Sound {
     
     public:
     
-        Sound(double _freq);
+        Sound(double _freq, double _modSpeed);
         double signal();
         void trigger(double cutoff);
     
@@ -24,5 +24,7 @@ class Sound {
         maxiOsc osc;
         maxiFilter filter;
         maxiEnv env;
+        maxiOsc filterMod;
+        double modSpeed;
     
 };

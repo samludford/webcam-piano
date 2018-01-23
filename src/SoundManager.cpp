@@ -7,6 +7,8 @@
 
 #include "SoundManager.h"
 
+double speeds[] = { 0.5, 0.75, 1.0, 1.25, 1.5, 2.0 };
+
 SoundManager::SoundManager() {
     
     // setup scale - a minor pentatonic
@@ -29,10 +31,9 @@ SoundManager::SoundManager() {
     scale[15] = 880.00;
     
     for(int i=0 ; i < scale.size() ; i++) {
-        Sound *s = new Sound(scale[i]);
+        Sound *s = new Sound(scale[i*5%scale.size()], speeds[i*4%6]);
         sounds.push_back(s);
     }
-    
 }
 
 void SoundManager::trigger_at(float x, float y) {
