@@ -14,7 +14,7 @@ class Sound {
     
         Sound(double _freq, double _modSpeed);
         double signal();
-        void trigger(double cutoff);
+        void trigger(double cutoff, double _freq);
     
     protected :
     
@@ -23,6 +23,7 @@ class Sound {
         double cutoff;
         maxiOsc osc;
         maxiFilter filter;
+        maxiFilter filter_glide;
         maxiEnv env;
         maxiOsc filterMod;
         double modSpeed;

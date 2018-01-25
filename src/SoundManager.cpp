@@ -7,7 +7,10 @@
 
 #include "SoundManager.h"
 
-double speeds[] = { 0.5, 0.75, 1.0, 1.25, 1.5, 2.0 };
+double speeds[] = { 0.75, 1.0, 1.25, 1.5, 2.0, 4.0 };
+
+int current_osc = 0;
+int osc_lim = 24;
 
 SoundManager::SoundManager() {
     
@@ -30,8 +33,8 @@ SoundManager::SoundManager() {
     scale[14] = 783.99;
     scale[15] = 880.00;
     
-    for(int i=0 ; i < scale.size() ; i++) {
-        Sound *s = new Sound(scale[i*5%scale.size()], speeds[i*4%6]);
+    for(int i=0 ; i < osc_lim ; i++) {
+        Sound *s = new Sound(scale[i*3%scale.size()], speeds[i*5%6]);
         sounds.push_back(s);
     }
 }
@@ -41,14 +44,20 @@ void SoundManager::trigger_at(float x, float y) {
     int xBox = x/40.0;
     int yBox = y/40.0;
     assert(xBox < 16 && yBox < 12);
-    double cutoff = ofMap(yBox, 0, 12, 100.0, 4000.0);
-    sounds[xBox]->trigger(cutoff);
+    double cutoff = ofMap(yBox, 0, 12, 150.0, 1000.0);
+    
+    double freq = scale[xBox*3%scale.size()];
+    
+//    sounds[current_osc%osc_lim]->trigger(cutoff, freq);
+    sounds[xBox]->trigger(cutoff, freq);
+    current_osc++;
 }
 
 double SoundManager::signal() {
-    double s;
-    for(int i=0 ; i<sounds.size() ; i++) {
+    double s = 0.0;
+    
+    for(int i=0 ; i<osc_lim ; i++) {
         s += sounds[i]->signal();
     }
-    return s * 0.0625;
+    return (s / osc_lim) * 0.2;
 }

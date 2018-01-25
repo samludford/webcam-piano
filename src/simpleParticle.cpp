@@ -6,7 +6,7 @@ simpleParticle::simpleParticle(ofVec2f _loc)
     loc = ofVec2f(_loc);
     vel = ofVec2f(0,0);
     accel = ofVec2f(0,0);
-    lifespan =  150;
+    lifespan =  0;
 
     agingRate = 2;
     radius = 10;

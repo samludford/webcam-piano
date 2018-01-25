@@ -1,4 +1,5 @@
 #include "simpleParticleSystem.h"
+#include "ColorHelper.h"
 //----------------------------------------------------------------------------
 // Functions that are used with ofRemove to remove particles in an optimal way
 // you can ignore these
@@ -34,11 +35,17 @@ void simpleParticleSystem::setupAsGrid(float _size, float _agingRate, float _lif
             s.radius = gridCellSize/2;
             s.agingRate = _agingRate;
             s.lifespan = lifespan;
-            s.color = ofColor(ofRandom(255), ofRandom(255), ofRandom(255));
+            
+            
+            s.color = ColorHelper::randomColor();
+            
             particles.push_back(s);
         }
     }
 }
+
+
+
 //--------------------------------------------
 void simpleParticleSystem::addParticle(float _x, float _y)
 {
@@ -65,8 +72,18 @@ void simpleParticleSystem::draw()
     ofFill();
     for (int i=0; i<particles.size(); i++)
     {
+        
+        
+        
+        float rad = ofMap(particles[i].lifespan, 0, lifespan, 0, particles[i].radius);
+        float rad2 = ofMap(particles[i].lifespan, 0, lifespan, particles[i].radius * 4.0, particles[i].radius);
+        
         ofSetColor(particles[i].color, particles[i].lifespan);
-        ofCircle(particles[i].loc.x, particles[i].loc.y,  particles[i].radius);
+        ofCircle(particles[i].loc.x, particles[i].loc.y,  rad);
+        
+        ofSetColor(particles[i].color, particles[i].lifespan / 2.0);
+        ofCircle(particles[i].loc.x, particles[i].loc.y,  rad2);
+
     }
     ofPopStyle();
 }
